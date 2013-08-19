@@ -13,7 +13,7 @@ use_ok( 'Business::RU::OKPO' );
     use Moose;
     
     has 'okpo' => (
-        is  =>  'ro',
+        is  => 'ro',
         isa => 'Int',
     );
     with 'Business::RU::OKPO';
