@@ -7,15 +7,14 @@ use_ok( 'Business::RU::BankAccount' );
 
 {
     package MyDecorator;
-
     use strict;
     use warnings;
-
     use Moose;
 
-    has 'current_account' => ( is => 'ro', isa => 'Int' );
+    has 'current_account'       => ( is => 'ro', isa => 'Int' );
     has 'correspondent_account' => ( is => 'ro', isa => 'Int' );
-    has 'bic' => ( is => 'ro', isa => 'Int' );
+    has 'bic'                   => ( is => 'ro', isa => 'Int' );
+    
     with 'Business::RU::BankAccount';
 
     __PACKAGE__ -> meta() -> make_immutable();
