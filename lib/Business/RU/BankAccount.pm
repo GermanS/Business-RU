@@ -49,37 +49,45 @@ sub validate_bic {
 
 __END__
 
+=pod
+
 =head1 NAME
 
 Business::RU::BankAccount
 
+=head1 VERSION
+
+version 0.1
+
 =head1 SYNOPSIS
 
-package myDecorator;
-use Moose;
-has 'current_account' => ( is => 'ro', isa => 'Int' );
-has 'correspondent_account' => ( is => 'ro', isa => 'Int' );
-has 'bic' => ( is => 'ro', isa => 'Int' );
-with 'Business::RU::BankAccount';
+    package myDecorator;
+    use Moose;
+    has 'current_account' => ( is => 'ro', isa => 'Int' );
+    has 'correspondent_account' => ( is => 'ro', isa => 'Int' );
+    has 'bic' => ( is => 'ro', isa => 'Int' );
+    with 'Business::RU::BankAccount';
 
-...
+    ...
 
-my $decorator = myDecorator  ->  new( 
-    current_account => $current_account,
-    correspondents_account => $correspondent_account,
-    bic => $bic,    
-);
-if( $decorator -> validate_bic() &&
-    $decorator -> validate_current_account() &&
-    $decorator -> validate_correspondent_account() ) {
-    ... success ...
-} else {
-    ... process error ...
-}
+    my $decorator = myDecorator  ->  new( 
+        current_account => $current_account,
+        correspondents_account => $correspondent_account,
+        bic => $bic,    
+    );
+    if( $decorator -> validate_bic() &&
+        $decorator -> validate_current_account() &&
+        $decorator -> validate_correspondent_account() ) {
+        ... success ...
+    } else {
+        ... process error ...
+    }
 
 =head1 DESCRIPTION
 
-Validate bank account details - current and correspondent accounts.
+Validate bank account details - BIC, current and correspondent accounts.
+B<NOTE:> This role expects that it's consuming class will have a C<bic>, 
+C<current_account> and C<correspondent_account> methods.
 
 =head1 METHODS
 
@@ -96,11 +104,21 @@ Internal method.
 
 =head1 SEE ALSO
 
-L<Moose::Role>
+L<http://ru.wikipedia.org/wiki/%D0%91%D0%B0%D0%BD%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D1%81%D1%87%D0%B5%D1%82>
+
+=head1 BUGS
+
+Please report any bugs through the web interface at L<http://rt.cpan.org> 
+or L<https://github.com/GermanS/Business-RU>
 
 =head1 AUTHOR
 
 German Semenkov
 german.semenkov@gmail.com
+
+=head1 COPYRIGHT AND LICENSE
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut

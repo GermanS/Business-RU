@@ -28,23 +28,34 @@ sub validate_okpo {
 
 __END__
 
+=pod
+
 =head1 NAME
 
 Business::RU::OKPO
 
+=head1 VERSION
+
+version 0.1
+
 =head1 SYNOPSIS
 
-package myDecorator;
-use Moose;
-has 'okpo' => ( is => 'ro', isa => 'Int' );
-with 'Business::RU::OKPO';
+    package myDecorator;
+    use Moose;
+    has 'okpo' => ( is => 'ro', isa => 'Int' );
+    with 'Business::RU::OKPO';
 
-my $decorator = myDecorator  ->  new( okpo => 123456789 );
-if( $decorator  ->  validate_okpo() ) {
-    ... success ...
-} else {
-    ... process error ...
-}
+    my $decorator = myDecorator  ->  new( okpo => 123456789 );
+    if( $decorator  ->  validate_okpo() ) {
+        ... success ...
+    } else {
+        ... process error ...
+    }
+
+=head1 DESCRIPTION
+
+Validate russian national classification of enterprises and organizations (OKPO)
+B<NOTE:> This role expects that it's consuming class will have a C<okpo> method.
 
 =head1 METHODS
 
@@ -55,11 +66,21 @@ Return true if OKPO valid.
 
 =head1 SEE ALSO
 
-L<Moose::Role>
+L<http://ru.wikipedia.org/wiki/%D0%9E%D0%9A%D0%9F%D0%9E>
+
+=head1 BUGS
+
+Please report any bugs through the web interface at L<http://rt.cpan.org> 
+or L<https://github.com/GermanS/Business-RU>
 
 =head1 AUTHOR
 
 German Semenkov
 german.semenkov@gmail.com
+
+=head1 COPYRIGHT AND LICENSE
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut

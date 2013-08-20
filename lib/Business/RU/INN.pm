@@ -57,27 +57,36 @@ sub _validate_inn_12 {
 
 __END__
 
+=pod
+
 =head1 NAME
 
 Business::RU::INN
 
-=head1 SYSNOPSIS
+=head1 VERSION
 
-package myDecorator;
-use Moose;
-has 'inn' => ( is => 'ro', isa => 'Int' );
-with 'Business::RU::INN';
+version 0.1
 
-...
+=head1 SYNOPSIS
 
-my $decorator = myDecorator -> new( inn => 123456789 );
-if( $decorator -> validate_inn() ) {
-    ... success ...
-} else {
-    ... process error ...
-}
+    package myDecorator;
+    use Moose;
+    has 'inn' => ( is => 'ro', isa => 'Int' );
+    with 'Business::RU::INN';
+
+    ...
+
+    my $decorator = myDecorator -> new( inn => 123456789 );
+    if( $decorator -> validate_inn() ) {
+        ... success ...
+    } else {
+        ... process error ...
+    }
 
 =head1 DESCRIPTION
+
+Validate russian individual taxpayer number.
+B<NOTE:> This role expects that it's consuming class will have a C<inn> method.
 
 =head1 METHODS
 
@@ -96,11 +105,21 @@ Validate long INN. Internal method.
 
 =head1 SEE ALSO
 
-L<Moose::Role>
+L<http://ru.wikipedia.org/wiki/%D0%98%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80_%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0>
+
+=head1 BUGS
+
+Please report any bugs through the web interface at L<http://rt.cpan.org> 
+or L<https://github.com/GermanS/Business-RU>
 
 =head1 AUTHOR
 
 German Semenkov
 german.semenkov@gmail.com
+
+=head1 COPYRIGHT AND LICENSE
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
